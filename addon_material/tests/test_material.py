@@ -7,9 +7,9 @@ class TestMaterial(TransactionCase):
     def setUp(self):
         super(TestMaterial, self).setUp()
         self.material_model = self.env['material.material']
-        self.supplier = self.env['res.partner'].create({
+        self.supplier = self.env['supplier.supplier'].create({
             'name': 'Test Supplier',
-            'supplier': True,
+            'is_supplier': True,
         })
 
     def test_create_material(self):

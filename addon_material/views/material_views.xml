@@ -24,7 +24,7 @@
                         <field name="material_name"/>
                         <field name="material_type"/>
                         <field name="material_buy_price"/>
-                        <field name="supplier_id" domain="[('is_supplier', '=', True)]"/>
+                        <field name="supplier_id"/>
                     </group>
                 </sheet>
             </form>
@@ -36,4 +36,17 @@
         <field name="res_model">material.material</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="view_material_search" model="ir.ui.view">
+        <field name="name">material.material.search</field>
+        <field name="model">material.material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="material_name"/>
+                <field name="material_type"/>
+                <filter name="group_by_material_type" string="Group By Material Type" context="{'group_by': 'material_type'}"/>
+            </search>
+        </field>
+    </record>
+
 </odoo>
